@@ -1,0 +1,106 @@
+\usepackage{amsthm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\theoremstyle{definition}
+\mdfdefinestyle{mdbluebox}{%
+	roundcorner = 10pt,
+	linewidth=1pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	nobreak=true,
+	linecolor=blue,
+	backgroundcolor=TealBlue!5,
+}
+\declaretheoremstyle[
+	headfont=\sffamily\bfseries\color{MidnightBlue},
+	mdframed={style=mdbluebox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt}
+]{thmbluebox}
+
+\mdfdefinestyle{mdredbox}{%
+	linewidth=0.5pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	frametitlefont=\bfseries,
+	innertopmargin=4pt,
+	innerbottommargin=8pt,
+	nobreak=true,
+	linecolor=RawSienna,
+	backgroundcolor=Salmon!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries\color{RawSienna},
+	mdframed={style=mdredbox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{thmredbox}
+
+\declaretheorem[%
+style=thmbluebox,name=Теорема,numberwithin=section]{theorem}
+\declaretheorem[style=thmbluebox,name=Лема,sibling=theorem]{lemma}
+\declaretheorem[style=thmbluebox,name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[style=thmbluebox,name=Наслідок,sibling=theorem]{corollary}
+\declaretheorem[style=thmredbox,name=Приклад,sibling=theorem]{example}
+
+\mdfdefinestyle{mdgreenbox}{%
+	skipabove=8pt,
+	linewidth=2pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=ForestGreen,
+	backgroundcolor=ForestGreen!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=1pt,
+	mdframed={style=mdgreenbox},
+	headpunct={ --- },
+]{thmgreenbox}
+
+\mdfdefinestyle{mdblackbox}{%
+	skipabove=8pt,
+	linewidth=3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=black,
+	backgroundcolor=RedViolet!5!gray!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries,
+	bodyfont=\normalfont\small,
+	spaceabove=0pt,
+	spacebelow=0pt,
+	mdframed={style=mdblackbox}
+]{thmblackbox}
+
+\theoremstyle{theorem}
+\declaretheorem[name=Question,sibling=theorem,style=thmblackbox]{ques}
+\declaretheorem[name=Exercise,sibling=theorem,style=thmblackbox]{exercise}
+\declaretheorem[name=Зауваження,sibling=theorem,style=thmgreenbox]{remark}
+\declaretheorem[name=Step,style=thmgreenbox]{step} % only used in Lebesgue int
+
+\theoremstyle{definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{definition}[theorem]{Визначення}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{abuse}[theorem]{Abuse of Notation}
+
+\newtheorem{problem}{Problem}[section]
+\renewcommand{\theproblem}{\thesection\Alph{problem}}
+\newtheorem{sproblem}[problem]{Problem}
+\newtheorem{dproblem}[problem]{Problem}
+\renewcommand{\thesproblem}{\theproblem$^{\star}$}
+\renewcommand{\thedproblem}{\theproblem$^{\dagger}$}
+\newcommand{\listhack}{$\empty$\vspace{-2em}}

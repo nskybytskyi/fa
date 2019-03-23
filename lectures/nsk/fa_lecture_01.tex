@@ -1,0 +1,357 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[english, ukrainian]{babel}
+\usepackage{amsmath, amssymb}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+\newcommand{\nothing}{$\left.\right.$}
+
+\renewcommand{\emptyset}{\varnothing}
+
+\input{th.sty}
+
+\begin{document}
+
+\section{Топологічні простори}
+
+В курсі математичного аналізу уже розглядалися
+поняття околу точки, відкритої і замкненої множин, точки
+дотику, граничної точки, границі послідовності в просторі
+$\RR$ тощо. Всі ці поняття визначалися за допомогою метрики
+простору $\RR$ і відбивали певні властивості, притаманні
+множинам, за допомогою яких ми могли описувати основну
+концепцію цієї теорії --- близькість між точками. Адже саме
+поняття близькості між точками (в розумінні малої відстані)
+є базовим для таких головних понять математичного аналізу
+як збіжність послідовностей і неперервність функцій. \medskip
+
+Відносним недоліком цього підходу є очевидна
+залежність від метрики, уведеної в просторі. Тому постало
+питання, чи не можна побудувати більш абстрактну
+конструкцію, за допомогою якої можна було б описати ідеї,
+згадані вище. Серед дослідників цієї проблеми слід
+відзначити французьких математиків M.~Фреше (1906),
+M.~Рісса (1907--1908), німецького математика Ф.~Хаусдорфа
+(1914), польського математика К.~Куратовського (1922) і
+радянського математика П.~Александрова (1924). В
+результаті досліджень цих та багатьох інших математиків
+виникла нова математична дисципліна --- загальна
+топологія, предметом якої є вивчення ідеї про неперервність
+на максимально абстрактному рівні. \medskip
+
+В цій та наступній лекціях ми введемо в розгляд ряд
+важливих топологічних понять. Це дозволить нам вийти на
+більш високий рівень абстракції і опанувати ідеї, що
+пронизують майже всі розділи математики. Не буде
+великим перебільшенням сказати, що в певному розумінні
+топологія разом з алгеброю є скелетом сучасної
+математики, а \textit{функціональний аналіз} --- це розділ
+математики, головною задачею якого є дослідження
+нескінченновимірних просторів та їх відображень.
+
+\begin{definition}
+	Нехай $X$ --- множина елементів, яку ми будемо
+	називати носієм. \textit{Топологією} в $X$ називається довільна
+	система $\tau$ його підмножин, яка задовольняє таким умовам
+	(\textit{аксіомам Александрова}):
+	\begin{enumerate}
+		\item[A1.] $\emptyset, X \in \tau$;
+		\item[A2.] $G_\alpha \in \tau$, $\alpha \in A$ $\implies$ $\bigcup_{\alpha \in A} G_\alpha \in \tau$, де $A$ --- довільна множина.
+		\item[A3.] $G_\alpha \in \tau$, $\alpha = 1, 2, \ldots, n$ $\implies$ $\bigcap_{\alpha = 1}^n G_\alpha \in \tau$.
+	\end{enumerate}
+\end{definition}
+
+Інакше кажучи, топологічною структурою називається
+система множин, замкнена відносно довільного об'єднання
+і скінченого перетину.
+
+\begin{definition}
+	Пара $T = (X, \tau)$ називається \textit{топологічним
+	простором}.
+\end{definition}
+
+\begin{example}
+	Нехай $X$ --- довільна множина, $\tau = 2^X$ ---
+	множина всіх підмножин $X$. Пара $(X, \tau)$ називається
+	простором з \textit{дискретною (максимальною) топологією}.
+\end{example}
+
+\begin{example}
+	Нехай $X$ --- довільна множина, $\tau = \{\emptyset, X\}$.
+	Пара $(X, \tau)$ називається простором з \textit{тривіальною
+	(мінімальною, або антидискретною) топологією}.
+\end{example}
+
+Зрозуміло, що на одній і тій же множині $X$ можна ввести
+різні топології, утворюючи різні топологічні простори.
+Припустимо, що на носії $X$ введено дві топології --- $\tau_1$ і $\tau_2$.
+Вони визначають два топологічні простори: $T_1 = (X, \tau_1)$ і
+$T_2 = (X, \tau_2)$. \medskip
+
+Говорять, що топологія $\tau_1$ є \textit{сильнішою}, або \textit{тонкішою},
+ніж топологія $\tau_2$, якщо $\tau_2 \subset \tau_1$. Відповідно, топологія $\tau_2$ є
+\textit{слабкішою}, або \textit{грубішою}, ніж топологія $\tau_1$. Легко бачити,
+що найслабкішою є тривіальна топологія, а
+найсильнішою --- дискретна.
+
+\begin{remark}
+	Mножина \textit{всіх} топологій не є цілком
+	упорядкованою, тобто не всі топології можна порівнювати
+	одну з одною. Наприклад, наступні топології (зв'язні
+	двокрапки) порівнювати не можна: $X = \{a, b\}$,
+	$\tau_1 = \{\emptyset, X, \{a\}\}$, $\tau_2 = \{\emptyset, X, \{b\}\}$.
+\end{remark}
+
+\begin{definition}
+	Mножини, що належать топології $\tau$,
+	називаються \textit{відкритими}. Mножини, які є доповненням до
+	відкритих множин, називаються \textit{замкненими}.
+\end{definition}
+
+Наприклад, множина всіх цілих чисел $\ZZ$ замкнена в $\RR^1$.
+
+\begin{remark}
+	Топологія включає в себе всі відкриті
+	множини. Водночас, треба зауважити, що поняття
+	відкритих і замкнених множин не є взаємовиключними.
+	Одна і та ж множина може бути одночасно і відкритою і
+	замкненою (наприклад, $\emptyset$ або $X$), або ані відкритою, ані
+	замкненою (множини раціональних та ірраціональних чисел
+	в $\RR^1$). Отже, топологія може містити і замкнені множини,
+	якщо вони одночасно є відкритими.
+\end{remark}
+
+Як бачимо, поняття відкритої множини в топологічному
+просторі \textit{постулюється} --- для того щоб довести, що деяка
+множина $M$ в топологічному просторі $T$ є відкритою, треба
+довести, що вона належить його топології.
+
+\begin{definition}
+	Нехай $(X, \tau)$ --- топологічний простір, $M \subset X$.
+	Топологія $(M, \tau_M)$, де $\tau_M = \{ U_M^{(\alpha)} = U_\alpha \cap M, U_\alpha \in \tau\}$,
+	називається \textit{індукованою.} 
+\end{definition}
+
+\begin{definition}
+	Топологічний простір $(X, \tau)$ називається
+	\textit{зв'язним}, якщо лише множини $X$ і $\emptyset$ є замкненими й
+	відкритими одночасно.
+\end{definition}
+
+\begin{definition}
+	Mножина $M$ топологічного простору $(X, \tau)$
+	називається \textit{зв'язною}, якщо топологічний простір $(M, \tau_M)$
+	є зв'язним.
+\end{definition}
+
+\begin{example}
+	Тривіальний (антидискретний) простір і
+	зв'язна двокрапка є зв'язними просторами.
+\end{example}
+
+\begin{definition}
+	Довільна відкрита множина $G \subset T$, що
+	містить точку $x \in T$, називається її \textit{околом}.
+\end{definition}
+
+\begin{definition}
+	Точка $x \in T$ називається \textit{точкою дотику}
+	множини $M \subset T$, якщо кожний окіл $O(x)$ точки $x$ містить
+	хоча б одну точку із $M$: \[\forall O(x) \in \tau: O(x) \cap M \ne \emptyset.\]
+\end{definition}
+
+\begin{definition}
+	Точка $x \in T$ називається \textit{граничною точкою}
+	множини $M \subset T$, якщо кожний окіл точки $x$ містить хоча
+	б одну точку із $M$, що не збігається з $x$: \[\forall O(x) \in \tau: O(x) \cap (M \setminus \{x\}) \ne \emptyset.\]
+\end{definition}
+
+\begin{definition}
+	Сукупність точок дотику множини $M \subset T$
+	називається \textit{замиканням} множини $M$ і позначається $\overline{M}$.
+\end{definition}
+
+\begin{definition}
+	Сукупність граничних точок множини
+	$M \subset T$ називається \textit{похідною} множини $M$ і позначається
+	$M'$.
+\end{definition}
+
+\begin{theorem}[про властивості замикання]
+	Замикання
+	задовольняє наступним умовам:
+	\begin{enumerate}
+		\item $M \subset \overline{M}$;
+		\item $\overline{\overline{M}} = \overline{M}$ (ідемпотентність);
+		\item $M \subset N \implies \overline{M} \subset \overline{N}$ (монотонність);
+		\item $\overline{M \cup N} = \overline{M} \cup \overline{N}$ (адитивність);
+		\item $\overline{\emptyset} = \emptyset$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\nothing
+	\begin{enumerate}
+		\item $M \subset \overline{M}$. \smallskip
+
+		Нехай $x \in M$. Тоді $x$ --- точка дотику множини $M$. Отже,
+		$x \in \overline{M}$.
+
+		\item $\overline{\overline{M}} = \overline{M}$. \smallskip
+
+		Внаслідок твердження 1) $\overline{M} \subset \overline{\overline{M}}$. Отже достатньо
+		довести, що $\overline{\overline{M}} \subset \overline{M}$. Нехай $x_0 \in \overline{\overline{M}}$ і $U_0$ --- довільний окіл
+		точки $x_0$. Оскільки $U_0 \cap \overline{M} \ne \emptyset$ (за означенням точки
+		дотику), то існує точка $y_0 \in U_0 \cap \overline{M}$. Отже, множину $U_0$
+		можна вважати околом точки $y_0$. Оскільки $y_0 \in \overline{M}$, то
+		$U_0 \cap M \ne \emptyset$. Значить, точка $x_0$ є точкою дотику
+		множини $M$, тобто $x_0 \in \overline{M}$.
+
+		\item $M \subset N \implies \overline{M} \subset \overline{N}$. \smallskip
+
+		Нехай $x_0 \in \overline{M}$ і $U_0$ --- довільний окіл точки $x_0$. Оскільки
+		$U_0 \cap M \ne \emptyset$ (за означенням точки дотику) і $M \subset N$ (за
+		умовою), то $U_0 \cap N \ne \emptyset$. Отже, $x_0$ --- точка дотику
+		множини $N$, тобто $x_0 \in \overline{N}$. Таким чином, $\overline{M} \subset \overline{N}$.
+
+		\item $\overline{M \cup N} = \overline{M} \cup \overline{N}$. \smallskip
+
+		Із очевидних включень $M \subset M \cup N$ і $N \subset M \cup N$
+		внаслідок монотонності операції замикання випливає, що
+		$\overline{M} \subset \overline{M \cup N}$ і $\overline{N} \subset \overline{M \cup N}$. Отже, $\overline{M} \cup \overline{N} \subset \overline{M \cup N}$. З іншого
+		боку, припустимо, що $x \notin \overline{M} \cup \overline{N}$, тоді $x \notin \overline{M}$ і $x \notin \overline{N}$. Отже,
+		існує такий окіл точки $x$, у якому немає точок з множини
+		$M \cup N$, тобто $x \notin \overline{M} \cup \overline{N}$. Таким чином, за законом
+		заперечення, $x \in \overline{M \cup N} \implies x \in \overline{M} \cup \overline{N}$, тобто
+		$\overline{M \cup N} \subset \overline{M} \cup \overline{N}$.
+		
+		\item $\overline{\emptyset} = \emptyset$.
+		Припустимо, що замикання порожньої множини не є
+		порожньою множиною: $x \in \overline{\emptyset} \implies \forall O(x): O(x) \cap \emptyset \ne \emptyset$. Але
+		$\forall N \subset X: N \cap \emptyset = \emptyset$. Отже, $\overline{\emptyset} = \emptyset$.
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}[критерій замкненості]
+	Mножина $M$
+	топологічного простору $X$ є замкненою тоді і лише тоді,
+	коли $\overline{M} = M$, тобто коли вона містить всі свої точки
+	дотику.
+\end{theorem}
+
+\begin{proof}
+	Необхідність. Припустимо, що $M$ --- замкнена
+	множина, тобто $G = X \setminus M$ --- відкрита множина. Оскільки,
+	$M \subset \overline{M}$, достатньо довести, що $\overline{M} \subset M$. Дійсно, оскільки $G$ --- відкрита множина, вона є околом кожної своєї точки.
+	До того ж $G \cap M = \emptyset$. Звідси випливає, то жодна точка
+	$x \in G$ не може бути точкою дотику для множини $M$, отже
+	всі точки дотику належать множині $M$, тобто $\overline{M} \subset M$. \[ G = X \setminus M \in \tau \implies G \cap M = \emptyset \implies \overline{M} \subset M. \]
+
+	Достатність. Припустимо, що $\overline{M} = M$. Доведемо, що
+	$G = X \setminus M$ --- відкрита множина (звідси випливатиме
+	замкненість множини $M$). Нехай $x_0 \in G$. З цього випливає,
+	що $x_0 \notin M$, а значить $x_0 \notin \overline{M}$. Тоді за означенням точки
+	дотику існує окіл $U_{x_0}$ такий, що $U_{x_0} \cap M = \emptyset$. Значить,
+	$U_{x_0} \subset X \setminus M = G$, тобто $G = \bigcup_{x \in G} U_x \in \tau$.
+\end{proof}
+
+\begin{corollary}
+	Замикання $M$ довільної множини $M$ із
+	простору $X$ є замкненою множиною в $X$.
+\end{corollary}
+
+\begin{theorem}
+	Замикання довільної множини $M$ простору
+	$(X, \tau)$ збігається із перетином всіх замкнених множин, що
+	містять множину $M$. \[ \forall M \in (X, \tau): \quad \overline{M} = \bigcup_\alpha F_\alpha, \quad F_\alpha = \overline{F_\alpha}, \quad M \subset F_\alpha. \]
+\end{theorem}
+
+\begin{proof}
+	Нехай $M$ --- довільна множина із $(X, \tau)$ і
+	$N = \bigcap_\alpha F_\alpha$, де $F_\alpha = \overline{F_\alpha}$, $M \subset F_\alpha$. \smallskip
+
+	Покажемо включення $N \subseteq \overline{M}$: \[N = \bigcap_\alpha F_\alpha \implies (N \subseteq F_\alpha) \forall \alpha \implies (N \subseteq \overline{F_\alpha}) \forall \alpha.\]
+
+	Оскільки $\{F_\alpha\}$ --- множина усіх замкнених множин, серед
+	них є множина $\overline{M}$: $\exists \alpha_0: F_{\alpha_0} = \overline{M}$. Отже, \[ N \subseteq \overline{F_\alpha} \implies N \subseteq F_{\alpha_0} = \overline{M} \implies N \subseteq \overline{M}. \]
+
+	Тепер покажемо включення $\overline{M} \subseteq N$. Розглянемо довільну замкнену множину $F$, що містить $M$: $\overline{F} = F$, $M \subset F$. Внаслідок монотонності замикання маємо: \[ \overline{F} = F, M \subset F \implies \overline{M} \subset \overline{F} = F \implies (\overline{M} \subset F_\alpha, F_\alpha = \overline{F_\alpha}) \forall \alpha \implies \overline{M} \subset N. \]
+
+	Порівнюючи обидва включення, маємо \[ \overline{M} = \bigcap_\alpha F_\alpha. \]
+\end{proof}
+
+\begin{corollary}
+	Замикання довільної множини $M$ простору
+	$X$ є найменшою замкненою множиною, що містить
+	множину $M$.
+\end{corollary}
+
+\begin{definition}
+	Нехай $A$ і $B$ --- дві множини в топологічному
+	просторі $T$. Mножина $A$ називається \textit{щільною} в $B$, якщо
+	$\overline{A} \supset B$.
+\end{definition}
+
+\begin{remark}
+	Mножина $A$ не обов'язково міститься в
+	$B$: множина раціональних чисел є щільною в множині
+	ірраціональних чисел і навпаки.
+\end{remark}
+
+\begin{definition}
+	Якщо $\overline{A} = X$, множина $A$ називається \textit{скрізь
+	щільною}. 
+\end{definition}
+
+\begin{definition}
+	Mножина $A$ називається \textit{ніде не щільною},
+	якщо вона не є щільною в жодній непорожній відкритій
+	підмножині множини $X$.
+\end{definition}
+
+Mножина $A$ є щільною в кожній непорожній відкритій
+множині, якщо $\forall U \in \tau, U \ne \emptyset: \overline{A} \supset U$, тобто кожна точка
+множини $U$ є точкою дотику множини $A$. Отже,
+$\forall x \in U: \forall O(x) \in \tau: O(x) \cap A \ne \emptyset$. Заперечення цього
+твердження збігається з означенням ніде не щільної
+множини. Формальний запис означення має такий вигляд.
+\[ \exists U_0 \in \tau, U_0 \ne \emptyset: \quad \overline{A} \not\supset U_0 \implies \exists x_0 \in U_0: \quad \exists O(x_0) \in \tau: \quad O(x) \cap A = \emptyset. \]
+
+\begin{definition}
+	Простір $T$, що містить скрізь щільну зліченну
+	множину, називається \textit{сепарабельним}.
+\end{definition}
+
+\begin{example}
+	В топології числової прямої множина всіх
+	раціональних чисел $\QQ$ є щільною в множині всіх
+	ірраціональних чисел $\RR \setminus \QQ$, і навпаки.
+\end{example}
+
+\begin{example}
+	Найпростішими прикладами ніде не
+	щільних множин є цілі числа просторі $\RR$ і пряма в просторі
+	$\RR^2$.
+\end{example}
+
+\begin{example}
+	Зліченна множина всіх раціональних чисел
+	$\QQ$ є скрізь щільною у просторі $\RR$ , отже простір $\RR$ є
+	сепарабельним.
+\end{example}
+
+З того, що $\overline{\QQ} = \RR$ і $\overline{\RR \setminus \QQ} =\RR$, зокрема, випливає, що $\QQ$ і
+$\RR \setminus \QQ$ є ані відкритими, ані замкненими множинами.
+
+\begin{example}
+	Зліченна множина всіх поліномів з
+	раціональними коефіцієнтами за теоремою Вєйєрштрасса є
+	скрізь щільною в просторі неперервних функцій $C([a,b])$.
+	Отже, простір $C([a,b])$ є сепарабельним. 
+\end{example}
+
+\end{document}
