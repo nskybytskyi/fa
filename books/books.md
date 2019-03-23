@@ -2,9 +2,9 @@
 
 Ця сторінка містить усі (_електронні_) книги з функціонального аналізу на які, або на частини яких здійснюються посилання у лекціях, на практичних заняттях, чи у збірнику задач.
 
-Робоча програма навчальної дисципліни "Функціональний аналіз" містить посилання ще на ряд книг, але не всі з них доступні в електронному вигляді. You are welcome to make pull requests that add any of those books.
+Робоча програма навчальної дисципліни "Функціональний аналіз" містить посилання ще на ряд книг, але не всі з них доступні в електронному вигляді. **You are welcome to make pull requests that add any of those books.**
 
-Note that all books listed were obtained from freely available sources.
+_Note that all books listed were obtained from freely available sources._
 
 ### Список книг
 
