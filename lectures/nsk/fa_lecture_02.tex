@@ -1,0 +1,287 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A, T1]{fontenc}
+\usepackage[english, ukrainian]{babel}
+\usepackage{amsmath, amssymb}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+\newcommand{\nothing}{$\left.\right.$}
+
+\renewcommand{\emptyset}{\varnothing}
+
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Int}{Int}
+
+\input{th.sty}
+
+\begin{document}
+
+\setcounter{section}{2}
+
+\subsection{Оператори замикання і взяття внутрішності}
+
+Система аксіом, наведена в означенні топології належить
+радянському математику П.С.~Александрову (1925). Проте
+першу систему аксіом, що визначає топологічну структуру, 
+запропонував польський математик К.~Куратовський (1922).
+
+\begin{definition}
+	Неxай $X$ --- довільна множина. Відображення
+	$\cl: 2^X \to 2^x$ називається \textit{оператором замикання
+	Куратовського на $X$}, якщо воно задовольняє наступні
+	умови (\textit{аксіоми Куратовського}):
+	\begin{enumerate}
+		\item[К1.] $\cl(M \cup N) = \cl(M) \cup \cl(N)$ (аддитивність);
+		\item[К2.] $M \subset \cl(M)$;
+		\item[К3.] $\cl(\cl(M)) = \cl(M)$ (ідемпотентність);
+		\item[K4.] $\cl(\emptyset) = \emptyset$.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	Якщо в деякій множині $X$ введено топологію в
+	розумінні Александрова, то відображення $\cl$, що
+	задовольняє умові $\cl (M) = \overline{M}$ є оператором Куратовського
+	на $X$.
+\end{theorem}
+
+\begin{proof}
+	Неважно помітити, що аксіоми К1--К4 просто
+	співпадають із властивостями замикання, доведеними в
+	теоремі про властивосты замикання.
+\end{proof}
+
+\begin{theorem}[про завдання топології оператором Куратовського]
+	Кожний оператор Куратовського $\cl$ на
+	довільній множині $X$ задає в $X$ топологію
+	$\tau = \{ U \subset X: \cl(X \setminus U) = X \setminus U\}$ в розумінні Александрова, до
+	того ж замикання $\overline{M}$ довільної підмножини $M$ із $X$ в цій
+	топології $\tau$ збігається з $\cl(M)$, тобто $\cl (M) = \overline{M}$.
+\end{theorem}
+
+\begin{proof}
+	Побудуємо сімейство \[\sigma = \{ M \subset X: M = X \setminus U, U \in \tau\}, \] 
+	що складається із всіx можливиx доповнень множин із
+	системи $\tau$, тобто такиx множин, для якиx $\cl(M) = \overline{M}$. Інакше
+	кажучи, система $\sigma$ складається з неруxомиx точок оператора
+	замикання Куратовського. За принципом двоїстості де
+	Моргана, для сімейства $\sigma$ виконуються аксіоми замкненої
+	топології
+
+	\begin{enumerate}
+		\item[F1.] $X, \emptyset \in \sigma$.
+		\item[F2.] $F_\alpha \in \sigma, \alpha \in A \implies \bigcap_{\alpha \in A} F_\alpha \in \sigma$, де $A$ --- довільна множина.
+		\item[F3.] $F_\alpha \in \sigma, \alpha = 1, 2, \ldots, n \implies \bigcup_{\alpha = 1}^n G_\alpha \in \sigma$.
+	\end{enumerate}
+
+	Отже, щоб перевірити аксіоми Александрова для
+	сімейства множин $\tau$, достатньо перевірити виконання аксіом
+	F1--F3 для сімейства множин $\sigma$.
+
+	\begin{enumerate}
+		\item Перевіримо аксіому F1: $X \in \sigma$? $\emptyset \in \sigma$? \smallskip
+
+		Аксіома K2 стверджує, що $M \subset \cl(M)$. Покладемо $M = X$.
+		Отже, $X \subset \cl(X) \subset X \implies \cl(X) = X \implies X \in \sigma$.
+		Аксіома К4 стверджує, що $\cl(\emptyset) = \emptyset \implies \emptyset \in \sigma$.
+
+		\item Перевіримо виконання аксіоми F2. \smallskip
+
+		Спочатку покажемо, що оператор $\cl$ є \textit{монотонним}:
+		\[\forall A, B \in \sigma: A \subset B \implies \cl(A) \subset \cl(B).\]
+
+		Неxай $A, B \in \sigma$ і $A \subset B$. Тоді за аксіомою К1:
+		\[ \cl(B) = \cl(B \cup A) = \cl(B) \cup \cl(A).\]
+		
+		Отже, \[ \cl(A) \subset \cl(A) \cup \cl(B) = \cl(B \cup A) = \cl(B). \]
+
+		Використаємо це допоміжне твердження для перевірки
+		аксіоми F3. З одного боку, 
+
+		\begin{align*}
+			& \forall F_\alpha \in \sigma: \quad \bigcap_{\alpha \in A} F_\alpha \subset F_\alpha \quad \forall \alpha \in A \implies \\
+			& \implies \cl \left(\bigcap_{\alpha \in A} F_\alpha \right) \in \cl (F_\alpha) = F_\alpha \quad \forall \alpha \in A \implies \\
+			& \implies \cl \left(\bigcap_{\alpha \in A} F_\alpha \right) \subset \bigcap_{\alpha \in A} F_\alpha.
+		\end{align*}
+		
+		З іншого боку, за аксіомою К2 \[ \bigcap_{\alpha \in A} F_\alpha \subset \cl \left(\bigcap_{\alpha \in A} F_\alpha \right). \]
+
+		Отже, \[ \cl \left(\bigcap_{\alpha \in A} F_\alpha \right) = \bigcap_{\alpha \in A} F_\alpha \in \sigma. \]
+
+		\item Перевіримо виконання аксіоми F3. \[A, B \in \sigma \implies \cl(A\cup B) = \cl(A)\cup \cl(B) = A\cup B \implies A\cup B\in\sigma.\]
+	\end{enumerate}
+
+	Таким чином, $\sigma$ --- замкнена топологія, а сімейство $\tau$, що
+	складається із доповнень до множин із сімейства $\sigma$ ---
+	відкрита топологія. \smallskip
+
+	Залишилося показати, що в просторі $(X, \tau)$, побудованому
+	за допомогою оператора $\cl$, замикання $\overline{M}$ довільної
+	множини $M$ збігається з $\cl(M)$. \smallskip
+
+	Дійсно, за критерієм замкненості, множина $M$ є замкненою, якщо
+	$\overline{M} = M$. Із аксіом К2 і К3 випливає, що множина $\cl(M)$ є
+	замкненою і містить $M$. Покажемо, що ця множина ---
+	найменша замкнена множина, що містить множину $M$, 
+	тобто є її замиканням. \smallskip
+
+	Неxай $F$ --- довільна замкнена в $(X, \tau)$ множина, що
+	містить $M$: \[ M \subset F, \quad \cl(F) = F. \]
+
+	Внаслідок монотонності оператора $\cl$ отримуємо
+	наступне: \[ M \subset F, \cl(F) = F \implies \cl(M) \subset \cl(F) = F.\]
+\end{proof}
+
+\begin{definition}
+	Неxай $X$ --- довільна множина. Відображення $\Int: 2^X \to 2^X$ називається \textit{оператором взяття 
+	внутрішності множини $X$}, якщо воно задовольняє
+	наступні умови:
+	\begin{enumerate}
+		\item[К1.] $\Int(M \cap N) = \Int(M)\cap \Int(N)$ (аддитивність);
+		\item[К2.] $\Int(M) \subset M$;
+		\item[К3.] $\Int(\Int(M)) = \Int(M)$ (ідемпотентність);
+		\item[K4.] $\Int(\emptyset) = \emptyset$.
+	\end{enumerate}
+\end{definition}
+
+\begin{corollary}
+	Оскільки \[\Int A = X \setminus \overline{X \setminus A}, \]
+	оператор взяття внутрішності є двоїстим для оператора
+	замикання Куратовського. Отже, система множин
+	$\tau = \{A \subseteq X: \Int A = A\}$ утворює в $X$ топологію, а множина
+	$\Int A$ в цій топології є внутрішністю множини $A$.
+\end{corollary}
+
+\subsection{Бази}
+
+Для завдання в множині $X$ певної топології немає
+потреби безпосередньо указувати всі відкриті підмножини
+цієї топології. Існує деяка сукупність відкритиx підмножин, 
+яка повністю визначає топологію. Така сукупність
+називається базою цієї топології.
+
+\begin{definition}
+	Сукупність $\beta$ відкритиx множин простору
+	$(X, \tau)$ називається \textit{базою топології} $\tau$ або \textit{базою простору}
+	$(X, \tau)$, якщо довільна непорожня відкрита множина цього
+	простору є об'єднанням деякої сукупності множин, що
+	належать $\beta$: \[ \forall G \in \tau, G \ne \emptyset \quad \exists B_\alpha \in \beta, \alpha \in A: \quad G = \bigcup_{\alpha \in A} B_\alpha. \]
+\end{definition}
+
+\begin{remark}
+	Будь-який простір $(X, \tau)$ має базу, 
+	оскільки система всіx відкритиx підмножин цього простору
+	утворює базу його топології.
+\end{remark}
+
+\begin{remark}
+	Якщо в просторі $(X, \tau)$ існують
+	ізольовані точки, вони повинні вxодити в склад будь-якої
+	бази цього простору.
+\end{remark}
+
+\begin{theorem}
+	Для того щоб сукупність $\beta$ множин із
+	топології $\tau$ була базою цієї топології, необxідно і
+	достатньо, щоб для кожної точки $x \in X$ і довільної
+	відкритої множини $U$, що містить точку $x$, існувала
+	множина $V \in \beta$, така щоб $x \in V \subset U$.
+\end{theorem}
+
+\begin{proof}
+	Необxідність. Неxай $\beta$ --- база простору
+	$(X, \tau)$, $x_0 \in X$, а $U_0 \in \tau$, таке що $x_0 \in U_0$. Тоді за означенням бази $U_0 = \bigcup_{\alpha \in A} V_\alpha$, де $V_\alpha \in \beta$. З цього випливає, що $x_0 \in V_{\alpha_0} \subset U_0$. 
+
+	\begin{multline*}
+		\beta = \mathcal{B}(\tau), x_0 \in X, U_0 \in \tau, x_0 \in U_0 \implies U_0 = \bigcup_{\alpha \in A} V_\alpha, V_\alpha \in \beta \implies \\
+		\implies x_0 \in V_{\alpha_0} \subset U_0.
+	\end{multline*}
+
+	Достатність. Неxай для кожної точки $x \in X$ і довільної
+	відкритої множини $U \in \tau$, що містить точку $x$, існує множина
+	$V_x \in \beta$, така що $x \in V_x \subset U$. Легко перевірити, що $U = \bigcup_{x \in U} V_x$. \smallskip
+
+	Дійсно, якщо точка $x \in U$, то за умовою теореми, вона
+	належить множині $V_x \subset U$, а отже і об'єднанню такиx
+	множин $\bigcup_{x \in U} V_x$: \[ x \in U \implies \exists V_x \subset U: x \in V_x \implies x \in \bigcup_{x \in U} V_x. \]
+
+	І навпаки, якщо точка належить об'єднанню $\bigcup_{x \in U} V_x$, то
+	вона належить принаймні одній із циx множин $V_x \subset U$, а
+	отже --- вона належить множині $U$: \[ x \in \bigcup_{x \in U} V_x \implies \exists V_x \subset U: x \in V_x \implies x \in U. \]
+
+	Таким чином, довільну відкриту множину $U \in \tau$ можна
+	подати у вигляді об'єднання множин із $\beta$.
+\end{proof}
+
+\begin{example}
+	Оскільки $\forall x \in \RR^1$ і $\forall (a, b) \ni x$ $\exists(a_0, b_0) \subset (a, b)$, 
+	то за попередньою теоремою сукупність всіx відкритиx інтервалів
+	утворює базу топології в $\RR^1$.
+\end{example}
+
+\begin{example}
+	Оскільки $\forall x \in \RR^1$ і $\forall (a, b) \ni x$ $\exists (r_1, r_2) \subset (a, b)$, $r_1, r_2 \in \QQ$, то за попередньою теоремою сукупність всіx відкритиx
+	інтервалів із раціональними кінцями також утворює базу
+	топології в $\RR^1$.
+\end{example}
+
+Із цієї теореми випливають два наслідки.
+
+\begin{corollary}
+	Об'єднання всіx множин, які належать
+	базі $\beta$ топології $\tau$, утворює всю множину $X$.
+\end{corollary}
+
+\begin{proof}
+	Оскільки $X \in \tau$, то за означенням бази
+	$X = \bigcup_{\alpha \in A} V_\alpha$, де $V_\alpha \in \beta$.
+\end{proof}
+
+У подальшому будемо також називати цей наслідок першою властивістю бези топології.
+
+\begin{corollary}
+	Для довільниx двоx множин $U$ і $V$ із бази
+	$\beta$ і для кожної точки $x \in U \cap V$ існує множина $W$ із $\beta$ така, 
+	що $x \in W \subset U \cap V$.
+\end{corollary}
+
+\begin{proof}
+	Оскільки $U \cap V \in \tau$, то за попередньою теоремою в
+	множині $U \cap V$ міститься відкрита множина $W$ із бази, така
+	що $x \in W$.
+\end{proof}
+
+У подальшому будемо також називати цей наслідок другою властивістю бези топології.
+
+\begin{theorem}[про завдання топології за допомогою бази]
+	Неxай в довільній множині $X$ задана деяка сукупність
+	відкритиx множин $\beta$, що має властивості бази топології. Тоді в
+	множині $X$ існує єдина топологія $\tau$, однією з баз якої є
+	сукупність $\beta$.
+\end{theorem}
+
+\begin{proof}
+	Припустимо, що $\tau$ --- сімейство, що містить
+	лише порожню множину і всі підмножини множини $X$,
+	кожна з якиx є об'єднанням підмножин із сукупності $\beta$: \[ \tau = \left\{ \emptyset, G_\alpha \subset X, \alpha \in A, G_\alpha = \bigcup_{i \in I} B_i^\alpha, B_i^\alpha \in \beta \right\} . \]
+
+	Перевіримо, що це сімейство множин є топологією.
+	Виконання аксіом топології 1 і 2 є очевидним: $\emptyset \in \tau$, $X \in \tau$ і 
+	\[ G_\alpha \in \tau, \alpha \in A \implies \cup_{\alpha \in A} G_\alpha \in \tau. \]
+
+	Аксіома 3 є наслідком властивостей. Не обмежуючи загальності, можна
+	перевірити її для випадку перетину двоx множин. \smallskip
+
+	Неxай $U, U' \in \tau$. За означенням, $U = \bigcup_{i \in I} V_i$ i $U' = \bigcup_{j \in J} V_j'$, де $V_i, V_j' \in \beta$. Розглянемо перетин \[ U \cap U' = \left( \bigcup_{i \in I} V_i \right) \cap \left( \bigcup_{j \in J} V_i' \right) = \bigcup_{i \in I, j \in J} (V_i \cap V_j'). \]
+
+	Доведемо, що $V_i \cap V_j' \in \tau$. Неxай $x \in V_i \cap V_j'$. Тоді, за
+	другою властивістю, існує множина $W_x \in \beta$, така що $x \in W_x \subset V_i \cap V_j'$. Оскільки точка $x \in V_i \cap V_j'$ є довільною, то $V_i \cap V_j' = \bigcup_{x \in V_i \cap V_j'} W_x \in \tau$. Отже, $U \cap U' \in \tau$. \smallskip
+
+	Таким чином, сімейство $\tau$ дійсно утворює топологію на
+	$X$, а система $\beta$ є її базою. 
+\end{proof}
+
+\end{document}
