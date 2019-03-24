@@ -150,7 +150,7 @@ $T_2 = (X, \tau_2)$. \medskip
 
 \begin{example}
 	Тривіальний (антидискретний) простір і
-	зв'язна двокрапка є зв'язними просторами.
+	зв'язна двокрапка є зв'яз\-ни\-ми просторами.
 \end{example}
 
 \begin{definition}
@@ -279,7 +279,7 @@ $T_2 = (X, \tau_2)$. \medskip
 	Оскільки $\{F_\alpha\}$ --- множина усіх замкнених множин, серед
 	них є множина $\overline{M}$: $\exists \alpha_0: F_{\alpha_0} = \overline{M}$. Отже, \[ N \subseteq \overline{F_\alpha} \implies N \subseteq F_{\alpha_0} = \overline{M} \implies N \subseteq \overline{M}. \]
 
-	Тепер покажемо включення $\overline{M} \subseteq N$. Розглянемо довільну замкнену множину $F$, що містить $M$: $\overline{F} = F$, $M \subset F$. Внаслідок монотонності замикання маємо: \[ \overline{F} = F, M \subset F \implies \overline{M} \subset \overline{F} = F \implies (\overline{M} \subset F_\alpha, F_\alpha = \overline{F_\alpha}) \forall \alpha \implies \overline{M} \subset N. \]
+	Тепер покажемо включення $\overline{M} \subseteq N$. Розглянемо довільну замкнену множину $F$, що містить $M$: $\overline{F} = F$, $M \subset F$. Внаслідок монотонності замикання маємо: \[ \overline{F} = F \supset M \implies \overline{M} \subset \overline{F} = F \implies (\overline{M} \subset F_\alpha, F_\alpha = \overline{F_\alpha}) \forall \alpha \implies \overline{M} \subset N. \]
 
 	Порівнюючи обидва включення, маємо \[ \overline{M} = \bigcap_\alpha F_\alpha. \]
 \end{proof}
@@ -319,7 +319,7 @@ Mножина $A$ є щільною в кожній непорожній від�
 $\forall x \in U: \forall O(x) \in \tau: O(x) \cap A \ne \emptyset$. Заперечення цього
 твердження збігається з означенням ніде не щільної
 множини. Формальний запис означення має такий вигляд.
-\[ \exists U_0 \in \tau, U_0 \ne \emptyset: \quad \overline{A} \not\supset U_0 \implies \exists x_0 \in U_0: \quad \exists O(x_0) \in \tau: \quad O(x) \cap A = \emptyset. \]
+\[ \exists U_0 \in \tau, U_0 \ne \emptyset: \overline{A} \not \supset U_0 \implies \exists x_0 \in U_0: \exists O(x_0) \in \tau: O(x) \cap A = \emptyset. \]
 
 \begin{definition}
 	Простір $T$, що містить скрізь щільну зліченну
