@@ -44,7 +44,7 @@
 \declaretheorem[%
 style=thmbluebox,name=Теорема,numberwithin=section]{theorem}
 \declaretheorem[style=thmbluebox,name=Лема,sibling=theorem]{lemma}
-\declaretheorem[style=thmbluebox,name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[style=thmbluebox,name=Твердження,sibling=theorem]{proposition}
 \declaretheorem[style=thmbluebox,name=Наслідок,sibling=theorem]{corollary}
 \declaretheorem[style=thmredbox,name=Приклад,sibling=theorem]{example}
 
@@ -85,22 +85,20 @@ style=thmbluebox,name=Теорема,numberwithin=section]{theorem}
 	mdframed={style=mdblackbox}
 ]{thmblackbox}
 
-\theoremstyle{theorem}
-\declaretheorem[name=Question,sibling=theorem,style=thmblackbox]{ques}
-\declaretheorem[name=Exercise,sibling=theorem,style=thmblackbox]{exercise}
+% \theoremstyle{theorem}
+\declaretheorem[name=Запитання,sibling=theorem,style=thmblackbox]{ques}
+\declaretheorem[name=Вправа,sibling=theorem,style=thmblackbox]{exercise}
 \declaretheorem[name=Зауваження,sibling=theorem,style=thmgreenbox]{remark}
-\declaretheorem[name=Step,style=thmgreenbox]{step} % only used in Lebesgue int
 
 \theoremstyle{definition}
-\newtheorem{claim}[theorem]{Claim}
+\newtheorem{claim}[theorem]{Твердження}
 \newtheorem{definition}[theorem]{Визначення}
-\newtheorem{fact}[theorem]{Fact}
-\newtheorem{abuse}[theorem]{Abuse of Notation}
+\newtheorem{fact}[theorem]{Факт}
 
-\newtheorem{problem}{Problem}[section]
+\newtheorem{problem}{Задача}[section]
 \renewcommand{\theproblem}{\thesection\Alph{problem}}
-\newtheorem{sproblem}[problem]{Problem}
-\newtheorem{dproblem}[problem]{Problem}
+\newtheorem{sproblem}[problem]{Задача}
+\newtheorem{dproblem}[problem]{Задача}
 \renewcommand{\thesproblem}{\theproblem$^{\star}$}
 \renewcommand{\thedproblem}{\theproblem$^{\dagger}$}
 \newcommand{\listhack}{$\empty$\vspace{-2em}}
