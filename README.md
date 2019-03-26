@@ -20,15 +20,11 @@
 
 ## Власне матеріали
 
-### [Програма курсу](program.pdf)
-
-### [Електронні лекції](lectures/lectures.md)
-
-### [Практичні заняття](practices/practices.md)
-
-### [Контрольні питання](exams/exams.md)
-
-### [Обширна література](books/books.md)
+- [Програма курсу](program.pdf)
+- [Електронні лекції](lectures/lectures.md)
+- [Практичні заняття](practices/practices.md)
+- [Контрольні питання](exams/exams.md)
+- [Обширна література](books/books.md)
 
 ---
 
