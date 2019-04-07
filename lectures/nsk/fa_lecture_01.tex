@@ -225,7 +225,7 @@ $T_2 = (X, \tau_2)$. \medskip
 		$\overline{M} \subset \overline{M \cup N}$ і $\overline{N} \subset \overline{M \cup N}$. Отже, $\overline{M} \cup \overline{N} \subset \overline{M \cup N}$. З іншого
 		боку, припустимо, що $x \notin \overline{M} \cup \overline{N}$, тоді $x \notin \overline{M}$ і $x \notin \overline{N}$. Отже,
 		існує такий окіл точки $x$, у якому немає точок з множини
-		$M \cup N$, тобто $x \notin \overline{M} \cup \overline{N}$. Таким чином, за законом
+		$M \cup N$, тобто $x \in \overline{M} \cup \overline{N}$. Таким чином, за законом
 		заперечення, $x \in \overline{M \cup N} \implies x \in \overline{M} \cup \overline{N}$, тобто
 		$\overline{M \cup N} \subset \overline{M} \cup \overline{N}$.
 		
@@ -267,7 +267,7 @@ $T_2 = (X, \tau_2)$. \medskip
 \begin{theorem}
 	Замикання довільної множини $M$ простору
 	$(X, \tau)$ збігається із перетином всіх замкнених множин, що
-	містять множину $M$. \[ \forall M \in (X, \tau): \quad \overline{M} = \bigcup_\alpha F_\alpha, \quad F_\alpha = \overline{F_\alpha}, \quad M \subset F_\alpha. \]
+	містять множину $M$. \[ \forall M \in (X, \tau): \quad \overline{M} = \bigcap_\alpha F_\alpha, \quad F_\alpha = \overline{F_\alpha}, \quad M \subset F_\alpha. \]
 \end{theorem}
 
 \begin{proof}
